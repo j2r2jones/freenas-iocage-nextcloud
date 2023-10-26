@@ -176,19 +176,6 @@ then
   NETMASK="24"
 fi
 
-# Check for reinstall
-if [ "$(ls -A "${CONFIG_PATH}")" ]; then
-	echo "Existing Nextcloud config detected... Checking Database compatibility for reinstall"
-	if [ "$(ls -A "${DB_PATH}/${DATABASE}")" ]; then
-		echo "Database is compatible, continuing..."
-		REINSTALL="true"
-	else
-		echo "ERROR: You can not reinstall without the previous database"
-		echo "Please try again after removing your config files or using the same database used previously"
-		exit 1
-	fi
-fi
-
 #####
 #
 # Jail Creation
